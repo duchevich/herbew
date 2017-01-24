@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Поиск
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 id="tytle" class="theme">Словарь</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div>
+           {% for line in search %}
+            
+            <img class="search_result__img" src="static/img/{{ line.theme }}/{{ line.img }}"></img>
+
+                <table>
+                    <tr>
+                        <td>
+                             <h2 class="search_result__text">Иврит:</h2>
+                        </td>
+                        <td>
+                             <h2 class="search_result__text">{{ line.herbew }}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="search_result__text">Транскрипция:</h2>
+                        </td>
+                        <td>
+                            <h2 class="search_result__text">{{ line.transcription }}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 class="search_result__text">Перевод:</h2>
+                        </td>
+                        <td>
+                            <h2 class="search_result__text">{{ line.russian }}</h2>
+                        </td>
+                    </tr>
+                </table>
+               
+            {% else %}
+                <br><br><br>
+                <h3>Слово не найдено</h3>
+              
+            {% endfor %} 
+        </div>      
+     </div>
+</div>
+<script>dictionary.classList.add('active-nav');</script>
+{% endblock %}

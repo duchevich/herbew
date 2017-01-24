@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Иврит - это легко!
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div id="map" class="map-container"></div>
+    <div>
+      <br>
+      
+      <h3 id="0" class="cities">Иерусалим</h3>
+      <h3 id="1" class="cities">Тель-Авив</h3>
+      <h3 id="2" class="cities">Хайфа</h3> 
+      <h3 id="3" class="cities">Беэр-Шева</h3>
+      <h3 id="4" class="cities">Арад</h3>
+      <h3 id="5" class="cities">Димона</h3>
+      <h3 id="6" class="cities">Ашкелон</h3>
+      <h3 id="7" class="cities">Ашдод</h3>
+      <h3 id="8" class="cities">Нетания</h3>
+      <h3 id="9" class="cities">Эйлат</h3>
+    </div>
+</div>
+<div class="row">
+  <div id="frame" class="col-md-offset-1 col-md-10"></div>
+</div>
+<script src="static/js/map.js"></script>        
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCAwbXRxUzlrZUeRz7FT_u5poIkeJUi7w&callback=initMap"></script>
+
+{% endblock %}

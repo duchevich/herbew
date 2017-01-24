@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="initial-scale=1, width=device-width" name="viewport">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/bootstrap-social.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='img/israel_logo.png') }}" rel="shortcut icon">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="static/js/masonry.pkgd.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{url_for ('map') }}"><img src="static/img/israel_logo.png" height=40 ></a>
+                     <button type="button" class="navbar-toggle collapsed aside-button" data-toggle="collapse" data-target="#aside_nav" aria-expanded="false" aria-controls="navbar"> Темы для изучения
+                       
+                    </button> 
+                </div>
+                <div  class="navbar-collapse collapse" aria-expanded="false" id="navbar">
+                    <ul  class="nav navbar-nav navbar-left">
+                        <li id="index">
+                            <a href="{{ url_for('index') }}">Главная</a>
+                        </li>
+                        <li id="dictionary">
+                            <a href="{{ url_for('dictionary') }}">Словарь</a>
+                        </li>
+                        <li id="grammar">
+                            <a href="{{ url_for('grammar') }}">Грамматика</a>
+                        </li>
+                        <li id="phrasebook">
+                            <a href="{{ url_for('phrasebook') }}">Разговорник</a>
+                        </li>
+                    </ul>
+                    {% if session.user_id %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="profile"><a href="{{ url_for('profile') }}">Мой профиль</a></li>
+                            <li id="lodout"><a href="{{ url_for('logout') }}">Выйти</a></li>
+                        </ul>
+                    {% else %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="register"><a href="{{ url_for('register') }}">Регистрация</a></li>
+                            <li id="login"><a href="{{ url_for('login') }}">Войти</a></li>
+                            </ul>
+                    {% endif %}
+                
+                </div>
+                    
+            </div>
+            
+        </nav>
+        <div class="container main">
+            <div class="row">
+                <div class="col-xs-12 col-md-2">
+                    
+                   
+                    <div class="aside navbar-collapse collapse" aria-expanded="false" id="aside_nav">
+                        <ul class="list_aside" class="nav navbar-nav navbar-left">
+                          <li id="les1"><a href="{{ url_for('lesson1') }}">Алфавит</a></li>
+                          <li id="les2"><a href="{{ url_for('lesson2') }}">Числа</a></li>
+                          <li id="school"><a href="{{ url_for('lesson3') }}">В школе</a></li>
+                          <li id="room"><a href="{{ url_for('lesson4') }}">Моя комната</a></li>
+                          <li id="les5"><a href="{{ url_for('study') }}">Я, ты, он, она...</a></li>
+                        </ul> 
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-10">
+                    
+                    <div class="article">
+                       {% block body %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+       
+        </div>
+        <footer class="navbar-fixed-bottom">
+            <div class="container">
+                <p>&copy; 2016 DTM design</p>
+            </div>
+        </footer>
+        
+        
+    </body>
+</html>

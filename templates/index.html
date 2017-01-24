@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Иврит - это легко!
+{% endblock %}
+
+{% block body %}
+<div class="row flag">
+    <div class="col-xs-8 col-md-8 tit_text">
+        <h1 id="title" class="titul_text"><strong>Иврит - это легко!</strong></h1>
+    </div>
+     <div class="col-xs-4 col-md-4">
+        <img class="tit_img" src="static/img/boy.png">
+    
+    </div>
+    <div class="row">
+        <div class="col-md-offset-7 col-md-5">
+            <audio src="static/audio/titul.mp3" controls></audio>
+        </div>
+    </div>                    
+</div>   
+<script>index.classList.add('active-nav');</script>
+{% endblock %}

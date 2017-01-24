@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1 id="tytle" class="theme">{{ title }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div id="container">
+            {% for line in items %}
+            <div class="wrap item">
+                <div class="front img">
+                    <img class="card_img" src="static/img/{{link}}{{ line.img }}"></img>
+                    <h2 class="card_h">{{ line.herbew }}</h2>
+                </div>
+                <div class="back img">
+                    <br>
+                    <h3 class="card_h_back">{{ line.russian }}</h3>
+                    <h3 class="card_h_back">{{ line.transcription }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+<script>{{ theme }}.classList.add('active')</script>
+<script src="static/js/cards.js"></script>
+{% endblock %}

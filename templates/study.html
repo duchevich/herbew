@@ -1,0 +1,54 @@
+﻿{% extends "layout.html" %}
+
+{% block title %}
+Иврит - это легко!
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="study-title">Тема: {{title}}</h1>
+        <h2 class="study-title">{{study_title}}</h2>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-xs-12 col-md-offset-1 col-md-4">
+        {% for line in answer %}
+            <div class="answer_card">
+                <div class="front img">
+                    <h2 class="answer">{{ line.transcription }}</h2>
+                </div>    
+            </div>   
+               
+           
+        {% endfor %}
+    </div>
+    <div class="col-xs-12  col-md-5">
+        <div id="container">
+           
+            <br>
+                {% for line in question %}
+                <div>
+                   <button class="btn btn-default btn-small btn-block input-question" type="text" name="training" value="{{line.transcription}}">{{line.russian}} </button>
+                </div>
+                <br>
+          
+                {% endfor %}
+           
+        </div>
+    </div>
+   
+</div>
+<div class="row">
+          <div class="col-xs-4 col-md-offset-4 col-md-2">
+            <a href="{{ url_for('study') }}" class="btn btn-primary btn-lg" id="game">Дальше</a>
+          </div>
+          <div class="col-xs-4 md-offset-3 col-md-2">
+            <button class="btn btn-primary btn-lg"  id="stop">Выход</button>
+          </div>
+          
+        </div>
+<script src="static/js/study.js"></script>
+{% endblock %}

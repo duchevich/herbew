@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My profile
+{% endblock %}
+
+{% block body %}
+<div class="col-md-offset-3 col-md-5">
+    <br><br>
+    <h3>Сменить пароль</h3>
+    <form action="{{ url_for('profile') }}" method="post">
+         <fieldset>
+            <div class="form-group">
+                <input class="form-control" name="old_password" placeholder="Старый пароль" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="new_password" placeholder="Новый пароль" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="new_password2" placeholder="Новый пароль (повторно)" type="password"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm" type="submit">Сменить</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    profile.classList.add('active-nav');
+</script>
+{% endblock %}
