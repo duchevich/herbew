@@ -1,7 +1,9 @@
 # herbew
 
-Фінальний проект в рамках курсу CS50 
+Фінальний проект в рамках курсу CS50.
 
-HTML, CSS
+Онлайн-тренажер для вивчення івриту.
+
+HTML, CSS,
 Bootstrap, jQuery,
 Python, Flask, sqlLite
